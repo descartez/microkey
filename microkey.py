@@ -1,6 +1,7 @@
 import digitalio
 from board import *
 import time
+from adafruit_trellis import Trellis
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 
