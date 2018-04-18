@@ -5,21 +5,37 @@ from adafruit_trellis import Trellis
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
 
+# Create the I2C interface
+i2c = busio.I2C(SCL, SDA)
+
+# Create a Trellis object for each board
+trellis = Trellis(i2c) # 0x70 when no I2C address is supplied
+
+# Turn on every LED
+print('Turning all LEDs on...')
+trellis.led.fill(True)
+time.sleep(2)
+
+# Turn off every LED
+print('Turning all LEDs off...')
+trellis.led.fill(False)
+time.sleep(2)
+
 # A simple neat keyboard demo in circuitpython
 
 # The button pins we'll use, each will have an internal pullup
-buttonpins = [D12, D11, D10, D9, D6, D5]
-ledpins = [A0, A1, A2, A3, A4, A5]
+# buttonpins = [D12, D11, D10, D9, D6, D5]
+# ledpins = [A0, A1, A2, A3, A4, A5]
 
-# The keycode sent for each button, will be paired with a control key
-buttonkeys = [Keycode.A, Keycode.B, Keycode.C, Keycode.D, Keycode.E, Keycode.F]
-controlkey = Keycode.LEFT_CONTROL
+# # The keycode sent for each button, will be paired with a control key
+# buttonkeys = [Keycode.A, Keycode.B, Keycode.C, Keycode.D, Keycode.E, Keycode.F]
+# controlkey = Keycode.LEFT_CONTROL
 
-# the keyboard object!
-kbd = Keyboard()
-# our array of button objects
-buttons = []
-leds = []
+# # the keyboard object!
+# kbd = Keyboard()
+# # our array of button objects
+# buttons = []
+# leds = []
 
 # make all pin objects, make them inputs w/pullups
 for pin in buttonpins:
