@@ -1,2 +1,2 @@
 # microkey
-microbit HID extension script
+micropython/circuitpython HID extension script
