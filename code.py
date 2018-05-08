@@ -27,3 +27,8 @@ for i in range(0,3,1):
     time.sleep(1)
     oled.invert(False)
     time.sleep(1)
+
+oled.fill(0)
+oled.show()
+
+oled.text(">_", 2, 2)
